@@ -1,0 +1,19 @@
+# Subsequence  of a given string 
+
+
+def subsequence(str1):
+    if len(str1)==0:
+        return [' ']
+    small = subsequence(str1[1:len(str1)])
+    r = [' '] * (2 * len(small))
+    k = 0
+    for i in range(len(small)):
+        r[k] = small[i]
+        k+= 1 
+    for i in range(len(small)):
+        r[k] = str1[0] + small[i] 
+        k += 1 
+    return r 
+    
+s = 'Lucky'
+print(subsequence(s))
